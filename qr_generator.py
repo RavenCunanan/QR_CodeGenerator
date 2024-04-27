@@ -1,13 +1,14 @@
 import qrcode
 import validators
+import uuid
 
-count=0
-def generate_qr():
-    global count  
+count=0 #count of QR codes made
+def generate_qr(): 
     print()
     print("Website QR Code Generator")
     print()
 
+    #Validate url links
     while True:
         website_link = input("Enter the website link: ")
         if validators.url(website_link):
@@ -19,6 +20,7 @@ def generate_qr():
     qr.add_data(website_link)
     qr.make()
 
+    #Ask user for for QR code color and validate user input for QR code color
     print()
     user_input = input("Enter 1 for a black QR code or enter 2 for a white QR code: ")
     print()
@@ -33,16 +35,15 @@ def generate_qr():
         else:
             print("Invalid input! Please enter either 1 or 2.")
 
-    #Create unique file names
-    
-    count+=1
-    filename=website_link.split('//')[1].split('.')[1]+str(count)+'_qr.png'
+    #Create unique file names for the QR codes
+    filename = str(uuid.uuid4())[:8] + '_qr.png'  #Using only the first 8 characters of the UUID
     img.save(filename)
 
     print()
     print("QR code saved as:", filename)
     print()
 
+#Ask user if they want to generate another code.
 while True:
     generate_qr()
     answer = input("Would you like to generate another QR code? (yes/no): ").lower()
