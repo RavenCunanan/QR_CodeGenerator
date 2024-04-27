@@ -21,3 +21,5 @@ This Python script allows users to generate QR codes for website links. It provi
 4. The generated QR code image will be saved in the same directory as the script with a unique filename.
 5. Repeat steps 2-4 to generate additional QR codes.
 6. To exit, type "no" when prompted to generate another QR code.
+
+![2p2](https://github.com/RavenCunanan/QR_CodeGenerator/assets/63638637/c7a4a3c3-6510-4080-a0a9-d2c9cfd12c0b)
